@@ -14,5 +14,13 @@ public class ItineraryEndpoints : IEndpointDefinition
 
             return Results.Ok("1");
         });
+        
+        app.MapPost("/itineraries/suggestions", async (int id, IMediator mediator) =>
+        {
+            // var result = await mediator.Send(new GetOrderDetailsQuery { Id = id });
+            // return result != null ? Results.Ok(result) : Results.NotFound();
+
+            return Results.Ok("1");
+        });
     }
 }

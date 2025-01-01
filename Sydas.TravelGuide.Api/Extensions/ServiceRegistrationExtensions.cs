@@ -1,6 +1,6 @@
 using System.Reflection;
 using MediatR;
-using Sydas.Framework.Mediator;
+using Sydas.Framework.AspNetCore.Mediator;
 
 namespace Sydas.TravelGuide.Api.Extensions;
 
