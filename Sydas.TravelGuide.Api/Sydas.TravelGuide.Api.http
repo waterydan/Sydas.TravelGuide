@@ -1,0 +1,6 @@
+@Sydas.TravelGuide.Api_HostAddress = http://localhost:5162
+
+GET {{Sydas.TravelGuide.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
