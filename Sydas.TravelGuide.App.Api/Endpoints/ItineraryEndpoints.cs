@@ -1,7 +1,7 @@
 using MediatR;
 using Sydas.Framework.AspNetCore.Endpoints;
 
-namespace Sydas.TravelGuide.Api.Endpoints;
+namespace Sydas.TravelGuide.App.Api.Endpoints;
 
 public class ItineraryEndpoints : IEndpointDefinition
 {

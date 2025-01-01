@@ -1,12 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sydas.TravelGuide.Api", "Sydas.TravelGuide.Api\Sydas.TravelGuide.Api.csproj", "{86112562-295D-48E0-B04D-96859622E741}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sydas.TravelGuide.App.Api", "Sydas.TravelGuide.App.Api\Sydas.TravelGuide.App.Api.csproj", "{86112562-295D-48E0-B04D-96859622E741}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{CAAB083F-C874-457B-91D1-15FBAADEEE3F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sydas.Framework.AspNetCore", "..\Sydas.Framework\Sydas.Framework.AspNetCore\Sydas.Framework.AspNetCore.csproj", "{B6B1CD44-C011-4F56-8514-89EC024BCD11}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sydas.Framework.Cryptography", "..\Sydas.Framework\Sydas.Framework.Cryptography\Sydas.Framework.Cryptography.csproj", "{C3173FE6-2862-4B53-AD0B-44EE809EF8DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppApi", "AppApi", "{99B1BC30-5C96-4B26-8804-D871736B0ACF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sydas.TravelGuide.App.Application", "Sydas.TravelGuide.App.Application\Sydas.TravelGuide.App.Application.csproj", "{2D895B19-02D0-4649-B911-F72BF8F2BEA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +30,15 @@ Global
 		{C3173FE6-2862-4B53-AD0B-44EE809EF8DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3173FE6-2862-4B53-AD0B-44EE809EF8DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3173FE6-2862-4B53-AD0B-44EE809EF8DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D895B19-02D0-4649-B911-F72BF8F2BEA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D895B19-02D0-4649-B911-F72BF8F2BEA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D895B19-02D0-4649-B911-F72BF8F2BEA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D895B19-02D0-4649-B911-F72BF8F2BEA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6B1CD44-C011-4F56-8514-89EC024BCD11} = {CAAB083F-C874-457B-91D1-15FBAADEEE3F}
 		{C3173FE6-2862-4B53-AD0B-44EE809EF8DF} = {CAAB083F-C874-457B-91D1-15FBAADEEE3F}
+		{86112562-295D-48E0-B04D-96859622E741} = {99B1BC30-5C96-4B26-8804-D871736B0ACF}
+		{2D895B19-02D0-4649-B911-F72BF8F2BEA1} = {99B1BC30-5C96-4B26-8804-D871736B0ACF}
 	EndGlobalSection
 EndGlobal

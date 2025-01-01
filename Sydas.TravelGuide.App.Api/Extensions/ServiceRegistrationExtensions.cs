@@ -1,8 +1,7 @@
 using System.Reflection;
-using MediatR;
 using Sydas.Framework.AspNetCore.Mediator;
 
-namespace Sydas.TravelGuide.Api.Extensions;
+namespace Sydas.TravelGuide.App.Api.Extensions;
 
 public static class ServiceRegistrationExtensions
 {

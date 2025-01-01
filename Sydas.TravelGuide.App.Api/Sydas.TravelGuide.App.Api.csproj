@@ -4,6 +4,8 @@
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <AssemblyName>Sydas.TravelGuide.App.Api</AssemblyName>
+        <RootNamespace>Sydas.TravelGuide.App.Api</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

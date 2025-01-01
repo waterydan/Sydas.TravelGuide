@@ -1,7 +1,7 @@
 using System.Reflection;
 using Sydas.Framework.AspNetCore.Endpoints;
-using Sydas.TravelGuide.Api.Exceptions;
-using Sydas.TravelGuide.Api.Extensions;
+using Sydas.TravelGuide.App.Api.Exceptions;
+using Sydas.TravelGuide.App.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
