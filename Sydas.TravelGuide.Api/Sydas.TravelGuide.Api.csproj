@@ -16,4 +16,8 @@
       <Folder Include="Endpoints\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\Sydas.Framework\Sydas.Framework.Mediator\Sydas.Framework.Mediator.csproj" />
+    </ItemGroup>
+
 </Project>

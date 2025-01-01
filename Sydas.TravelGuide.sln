@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sydas.TravelGuide.Api", "Sydas.TravelGuide.Api\Sydas.TravelGuide.Api.csproj", "{86112562-295D-48E0-B04D-96859622E741}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{CAAB083F-C874-457B-91D1-15FBAADEEE3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sydas.Framework.Mediator", "..\Sydas.Framework\Sydas.Framework.Mediator\Sydas.Framework.Mediator.csproj", "{4371525D-AFC2-445E-B6A2-76787FAFD43D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,12 @@ Global
 		{86112562-295D-48E0-B04D-96859622E741}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86112562-295D-48E0-B04D-96859622E741}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86112562-295D-48E0-B04D-96859622E741}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4371525D-AFC2-445E-B6A2-76787FAFD43D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4371525D-AFC2-445E-B6A2-76787FAFD43D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4371525D-AFC2-445E-B6A2-76787FAFD43D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4371525D-AFC2-445E-B6A2-76787FAFD43D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4371525D-AFC2-445E-B6A2-76787FAFD43D} = {CAAB083F-C874-457B-91D1-15FBAADEEE3F}
 	EndGlobalSection
 EndGlobal

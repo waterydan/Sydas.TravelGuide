@@ -1,5 +1,6 @@
 using System.Reflection;
 using MediatR;
+using Sydas.Framework.Mediator;
 
 namespace Sydas.TravelGuide.Api.Extensions;
 
@@ -7,8 +8,12 @@ public static class ServiceRegistrationExtensions
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        services.AddMediatR(cfg =>
+        {
+            cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+            cfg.AddOpenBehavior(typeof(RequestLoggingBehavior<,>));
+            cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
+        });
         return services;
     }
 
