@@ -1,7 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.SemanticKernel;
 using Sydas.Framework.Core.Utilities;
-using Sydas.Framework.DependencyInjection;
 using Sydas.Framework.SemanticKernel;
 using Sydas.Framework.SemanticKernel.Options;
 
@@ -30,14 +29,7 @@ public static class ItineraryKernelExtensions
 {
     public static IServiceCollection AddItineraryKernel(this IServiceCollection services, OpenAIOptions openAIOptions)
     {
-        services.AddScoped<ItineraryKernel>(_ =>
-        {
-            // var builder = Kernel.CreateBuilder().AddOpenAIChatCompletion(openAIOptions.ChatModelId, openAIOptions.ApiKey);
-            // builder.Plugins.AddLiquidPromptsFromDirectory(FileUtils.GetAbsolutePath("Kernels/Prompts"));
-            // var kernel = builder.Build();
-            // return kernel;
-            return new ItineraryKernel(openAIOptions);
-        });
+        services.AddScoped<ItineraryKernel>(_ => new ItineraryKernel(openAIOptions));
         return services;
     }
 }

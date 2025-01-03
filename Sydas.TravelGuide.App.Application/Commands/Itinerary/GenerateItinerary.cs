@@ -1,5 +1,4 @@
 using MediatR;
-using Microsoft.SemanticKernel;
 using Sydas.TravelGuide.App.Application.Kernels;
 
 namespace Sydas.TravelGuide.App.Application.Commands.Itinerary;
