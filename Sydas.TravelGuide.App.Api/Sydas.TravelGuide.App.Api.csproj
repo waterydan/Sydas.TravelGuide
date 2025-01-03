@@ -12,11 +12,14 @@
         <PackageReference Include="Mapster" Version="7.4.0" />
         <PackageReference Include="MediatR" Version="12.4.1" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0"/>
-        <PackageReference Include="Microsoft.SemanticKernel.Connectors.OpenAI" Version="1.32.0" />
+        <PackageReference Include="Microsoft.SemanticKernel" Version="1.32.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\Sydas.Framework\Sydas.Framework.AspNetCore\Sydas.Framework.AspNetCore.csproj" />
+      <ProjectReference Include="..\..\Sydas.Framework\Sydas.Framework.DependencyInjection\Sydas.Framework.DependencyInjection.csproj" />
+      <ProjectReference Include="..\..\Sydas.Framework\Sydas.Framework.SemanticKernel\Sydas.Framework.SemanticKernel.csproj" />
+      <ProjectReference Include="..\Sydas.TravelGuide.App.Application\Sydas.TravelGuide.App.Application.csproj" />
     </ItemGroup>
 
 </Project>

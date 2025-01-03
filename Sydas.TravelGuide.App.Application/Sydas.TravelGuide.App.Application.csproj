@@ -8,7 +8,23 @@
 
     <ItemGroup>
       <Folder Include="Commands\" />
+      <Folder Include="Kernels\Plugins\" />
       <Folder Include="Queries\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.SemanticKernel" Version="1.32.0" />
+      <PackageReference Include="Microsoft.SemanticKernel.PromptTemplates.Liquid" Version="1.32.0-preview" />
+      <PackageReference Include="Microsoft.SemanticKernel.Yaml" Version="1.32.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Kernels\Prompts\ItineraryGenerationPrompt.yaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Sydas.Framework\Sydas.Framework.DependencyInjection\Sydas.Framework.DependencyInjection.csproj" />
+      <ProjectReference Include="..\..\Sydas.Framework\Sydas.Framework.SemanticKernel\Sydas.Framework.SemanticKernel.csproj" />
     </ItemGroup>
 
 </Project>

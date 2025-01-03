@@ -12,6 +12,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppApi", "AppApi", "{99B1BC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sydas.TravelGuide.App.Application", "Sydas.TravelGuide.App.Application\Sydas.TravelGuide.App.Application.csproj", "{2D895B19-02D0-4649-B911-F72BF8F2BEA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sydas.Framework.DependencyInjection", "..\Sydas.Framework\Sydas.Framework.DependencyInjection\Sydas.Framework.DependencyInjection.csproj", "{FB3FC844-B6CA-436D-AF71-87C4E0548032}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sydas.Framework.Core", "..\Sydas.Framework\Sydas.Framework.Core\Sydas.Framework.Core.csproj", "{033F8DA5-A11A-4CEA-A344-7A09DB640072}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sydas.Framework.SemanticKernel", "..\Sydas.Framework\Sydas.Framework.SemanticKernel\Sydas.Framework.SemanticKernel.csproj", "{F6EFCCD7-9B52-48FF-8C31-6DFEC527E7AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,11 +40,26 @@ Global
 		{2D895B19-02D0-4649-B911-F72BF8F2BEA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D895B19-02D0-4649-B911-F72BF8F2BEA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D895B19-02D0-4649-B911-F72BF8F2BEA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB3FC844-B6CA-436D-AF71-87C4E0548032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB3FC844-B6CA-436D-AF71-87C4E0548032}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB3FC844-B6CA-436D-AF71-87C4E0548032}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB3FC844-B6CA-436D-AF71-87C4E0548032}.Release|Any CPU.Build.0 = Release|Any CPU
+		{033F8DA5-A11A-4CEA-A344-7A09DB640072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033F8DA5-A11A-4CEA-A344-7A09DB640072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033F8DA5-A11A-4CEA-A344-7A09DB640072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033F8DA5-A11A-4CEA-A344-7A09DB640072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6EFCCD7-9B52-48FF-8C31-6DFEC527E7AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6EFCCD7-9B52-48FF-8C31-6DFEC527E7AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6EFCCD7-9B52-48FF-8C31-6DFEC527E7AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6EFCCD7-9B52-48FF-8C31-6DFEC527E7AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6B1CD44-C011-4F56-8514-89EC024BCD11} = {CAAB083F-C874-457B-91D1-15FBAADEEE3F}
 		{C3173FE6-2862-4B53-AD0B-44EE809EF8DF} = {CAAB083F-C874-457B-91D1-15FBAADEEE3F}
 		{86112562-295D-48E0-B04D-96859622E741} = {99B1BC30-5C96-4B26-8804-D871736B0ACF}
 		{2D895B19-02D0-4649-B911-F72BF8F2BEA1} = {99B1BC30-5C96-4B26-8804-D871736B0ACF}
+		{FB3FC844-B6CA-436D-AF71-87C4E0548032} = {CAAB083F-C874-457B-91D1-15FBAADEEE3F}
+		{033F8DA5-A11A-4CEA-A344-7A09DB640072} = {CAAB083F-C874-457B-91D1-15FBAADEEE3F}
+		{F6EFCCD7-9B52-48FF-8C31-6DFEC527E7AA} = {CAAB083F-C874-457B-91D1-15FBAADEEE3F}
 	EndGlobalSection
 EndGlobal
