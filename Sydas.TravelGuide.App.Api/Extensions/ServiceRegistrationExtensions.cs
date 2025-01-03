@@ -1,5 +1,7 @@
 using System.Reflection;
 using Sydas.Framework.AspNetCore.Mediator;
+using Sydas.Framework.DependencyInjection;
+using Sydas.TravelGuide.App.Application.Commands.Itinerary;
 
 namespace Sydas.TravelGuide.App.Api.Extensions;
 
@@ -9,10 +11,13 @@ public static class ServiceRegistrationExtensions
     {
         services.AddMediatR(cfg =>
         {
-            cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+            cfg.RegisterServicesFromAssembly(typeof(GenerateItinerary).Assembly);
             cfg.AddOpenBehavior(typeof(RequestLoggingBehavior<,>));
             cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
         });
+        
+        services.AddServicesFromAssemblies();
+
         return services;
     }
 

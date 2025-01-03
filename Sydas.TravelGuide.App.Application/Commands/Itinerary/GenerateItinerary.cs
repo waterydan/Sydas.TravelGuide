@@ -21,7 +21,14 @@ public static class GenerateItinerary
         
         public async Task Handle(Command request, CancellationToken cancellationToken)
         {
-            var result = await _kernel.SemanticKernel.InvokePromptAsync("ItineraryGenerationPrompt", cancellationToken: cancellationToken);
+            var function = _kernel.GetKernelFunction("ItineraryGenerationPrompt");
+            var result = await _kernel.SemanticKernel.InvokeAsync(function, new()
+            {
+                { "customer_name", "John Doe" },
+                { "destination", "Tokyo, Japan" },
+                { "from_date", "2025-02-04" },
+                { "to_date", "2025-02-08" }
+            }, cancellationToken);
         }
     }
 }

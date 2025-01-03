@@ -12,16 +12,7 @@ using Sydas.TravelGuide.App.Application.Kernels;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOptions<OpenAIConfigs>()
-    .Bind(builder.Configuration.GetSection(nameof(OpenAIConfigs)))
-    .ValidateDataAnnotations()
-    .ValidateOnStart();
-
-builder.Services.AddSingleton<IChatCompletionService>(sp =>
-{
-    OpenAIConfigs configs = sp.GetRequiredService<IOptions<OpenAIConfigs>>().Value;
-    return new OpenAIChatCompletionService(configs.ChatModelId, configs.ApiKey);
-});
+builder.ConfigureSemanticKernel();
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -30,12 +21,10 @@ builder.Services.AddOpenApi();
 builder.Services.AddApplicationServices();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
-builder.Services.AddMediatR(configuration =>
-{
-    configuration.RegisterServicesFromAssembly(typeof(GenerateItinerary).Assembly);
-});
-builder.Services.AddServicesFromAssemblies();
-// builder.Services.AddItineraryKernel();
+// builder.Services.AddMediatR(configuration =>
+// {
+//     configuration.RegisterServicesFromAssembly(typeof(GenerateItinerary).Assembly);
+// });
 
 var app = builder.Build();
 
