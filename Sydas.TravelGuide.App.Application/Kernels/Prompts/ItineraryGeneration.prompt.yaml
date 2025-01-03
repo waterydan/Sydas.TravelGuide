@@ -35,8 +35,7 @@ template: |
   <message role="user">
       I'm planning a trip to {{destination}} between {{from_date}} and {{to_date}}. Provide a list of suggested itinerary for this trip.
   </message>
-template_format: liquid
-response_format: json_object
+template_format: semantic-kernel
 description: Travel itinerary generation.
 input_variables:
   - name: destination
@@ -45,6 +44,6 @@ input_variables:
   - name: from_date
     description: Arrival date
     is_required: true
-  - name: from_date
+  - name: to_date
     description: Departure date
     is_required: true

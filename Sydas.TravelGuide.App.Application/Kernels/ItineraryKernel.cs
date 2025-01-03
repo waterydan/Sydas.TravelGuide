@@ -9,31 +9,29 @@ namespace Sydas.TravelGuide.App.Application.Kernels;
 [Export]
 public class ItineraryKernel
 {
-    KernelPluginCollection _pluginCollection = [];
-    
     public ItineraryKernel()
     {
-        // var kernelFunction = KernelFunctionFactory.CreateFromPrompt("");
-        // KernelPluginCollection pluginCollection = [];
-        // pluginCollection.Add;
-        // pluginCollection.Add();.AddFromObject(sp.GetRequiredService<MyTimePlugin>());
-        // pluginCollection.AddFromObject(sp.GetRequiredService<MyAlarmPlugin>());
-        // pluginCollection.AddFromObject(sp.GetRequiredKeyedService<MyLightPlugin>("OfficeLight"), "OfficeLight");
-        // pluginCollection.AddFromObject(sp.GetRequiredKeyedService<MyLightPlugin>("PorchLight"), "PorchLight");
+        var builder = Kernel.CreateBuilder();
+        var plugins = builder.Plugins.AddLiquidPromptsFromDirectory(FileUtils.GetAbsolutePath("Kernels/Prompts"));
+        // builder.Plugins.Add(plugins.First());
+        var kernel = builder.Build();
+        SemanticKernel = kernel;
     }
+    
+    public Kernel SemanticKernel { get; }
 }
 
-public static class ItineraryKernelExtensions
-{
-    public static IServiceCollection AddItineraryKernel(this IServiceCollection services)
-    {
-        services.AddKeyedTransient<Kernel>(nameof(ItineraryKernel), (provider, o) =>
-        {
-            var builder = Kernel.CreateBuilder();
-            builder.Plugins.AddLiquidPromptsFromDirectory(FileUtils.GetAbsolutePath("Kernels/Prompts"));
-            var kernel = builder.Build();
-            return kernel;
-        });
-        return services;
-    }
-}
+// public static class ItineraryKernelExtensions
+// {
+//     public static IServiceCollection AddItineraryKernel(this IServiceCollection services)
+//     {
+//         services.AddKeyedTransient<Kernel>(nameof(ItineraryKernel), (provider, o) =>
+//         {
+//             var builder = Kernel.CreateBuilder();
+//             builder.Plugins.AddLiquidPromptsFromDirectory(FileUtils.GetAbsolutePath("Kernels/Prompts"));
+//             var kernel = builder.Build();
+//             return kernel;
+//         });
+//         return services;
+//     }
+// }

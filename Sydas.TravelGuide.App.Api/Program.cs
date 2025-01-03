@@ -7,6 +7,7 @@ using Sydas.Framework.DependencyInjection;
 using Sydas.Framework.SemanticKernel.Options;
 using Sydas.TravelGuide.App.Api.Exceptions;
 using Sydas.TravelGuide.App.Api.Extensions;
+using Sydas.TravelGuide.App.Application.Commands.Itinerary;
 using Sydas.TravelGuide.App.Application.Kernels;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,8 +30,12 @@ builder.Services.AddOpenApi();
 builder.Services.AddApplicationServices();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
+builder.Services.AddMediatR(configuration =>
+{
+    configuration.RegisterServicesFromAssembly(typeof(GenerateItinerary).Assembly);
+});
 builder.Services.AddServicesFromAssemblies();
-builder.Services.AddItineraryKernel();
+// builder.Services.AddItineraryKernel();
 
 var app = builder.Build();
 

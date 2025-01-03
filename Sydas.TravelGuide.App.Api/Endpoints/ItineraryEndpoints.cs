@@ -1,5 +1,6 @@
 using MediatR;
 using Sydas.Framework.AspNetCore.Endpoints;
+using Sydas.TravelGuide.App.Application.Commands.Itinerary;
 
 namespace Sydas.TravelGuide.App.Api.Endpoints;
 
@@ -15,10 +16,12 @@ public class ItineraryEndpoints : IEndpointDefinition
             return Results.Ok("1");
         });
         
-        app.MapPost("/itineraries/suggestions", async (int id, IMediator mediator) =>
+        app.MapPost("/itineraries/suggestions", async (IMediator mediator) =>
         {
             // var result = await mediator.Send(new GetOrderDetailsQuery { Id = id });
             // return result != null ? Results.Ok(result) : Results.NotFound();
+
+            await mediator.Send(new GenerateItinerary.Command());
 
             return Results.Ok("1");
         });
