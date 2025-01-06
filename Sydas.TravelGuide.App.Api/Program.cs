@@ -12,6 +12,7 @@ using Sydas.TravelGuide.App.Application.Kernels;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.ConfigureOpenTelemetry();
 builder.ConfigureSemanticKernel();
 
 // Add services to the container.
