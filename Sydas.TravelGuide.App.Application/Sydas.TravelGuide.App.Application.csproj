@@ -18,19 +18,16 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Kernels\Prompts\ItineraryGenerationPrompt.yaml" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\..\Sydas.Framework\Sydas.Framework.DependencyInjection\Sydas.Framework.DependencyInjection.csproj" />
       <ProjectReference Include="..\..\Sydas.Framework\Sydas.Framework.SemanticKernel\Sydas.Framework.SemanticKernel.csproj" />
+      <ProjectReference Include="..\Sydas.TravelGuide.Core.Domain\Sydas.TravelGuide.Core.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Kernels\Prompts\ItineraryGeneration.prompt.yaml" />
-      <Content Include="Kernels\Prompts\ItineraryGeneration.prompt.yaml">
+      <None Update="Kernels\Prompts\AttractionSuggestion.prompt.yaml">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
+      </None>
     </ItemGroup>
+    
 
 </Project>

@@ -13,7 +13,7 @@ public class ItineraryKernel
     public ItineraryKernel(OpenAIOptions openAIOptions)
     {
         var builder = Kernel.CreateBuilder().AddOpenAIChatCompletion(openAIOptions.ChatModelId, openAIOptions.ApiKey);
-        _kernelFunctions = builder.Plugins.AddLiquidPromptsFromDirectory(FileUtils.GetAbsolutePath("Kernels/Prompts"));
+        _kernelFunctions = builder.Plugins.AddFromDirectory(FileUtils.GetAbsolutePath("Kernels/Prompts"));
         SemanticKernel = builder.Build();
     }
     

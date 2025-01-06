@@ -21,6 +21,7 @@
       <ProjectReference Include="..\..\Sydas.Framework\Sydas.Framework.DependencyInjection\Sydas.Framework.DependencyInjection.csproj" />
       <ProjectReference Include="..\..\Sydas.Framework\Sydas.Framework.SemanticKernel\Sydas.Framework.SemanticKernel.csproj" />
       <ProjectReference Include="..\Sydas.TravelGuide.App.Application\Sydas.TravelGuide.App.Application.csproj" />
+      <ProjectReference Include="..\Sydas.TravelGuide.Core.Domain\Sydas.TravelGuide.Core.Domain.csproj" />
     </ItemGroup>
 
 </Project>
