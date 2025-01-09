@@ -1,5 +1,5 @@
 using OpenTelemetry.Logs;
-using OpenTelemetry.Resources;
+using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 
 namespace Sydas.TravelGuide.App.Api.Extensions;
@@ -8,25 +8,30 @@ public static class OpenTelemetryRegistrationExtension
 {
     public static WebApplicationBuilder ConfigureOpenTelemetry(this WebApplicationBuilder builder)
     {
-       builder.Services.AddOpenTelemetry()
-            .WithTracing(tracerProviderBuilder =>
+        builder.Services.AddOpenTelemetry()
+            .WithTracing(providerBuilder =>
             {
-                tracerProviderBuilder
+                providerBuilder
                     .AddAspNetCoreInstrumentation()
                     .AddHttpClientInstrumentation()
-                    .SetResourceBuilder(
-                        ResourceBuilder.CreateDefault()
-                            .AddService(builder.Environment.ApplicationName))
-                    .AddConsoleExporter(); // Or other exporters
+                    .AddOtlpExporter()
+                    .AddConsoleExporter();
+            })
+            .WithMetrics(providerBuilder =>
+            {
+                providerBuilder
+                    .AddRuntimeInstrumentation()
+                    .AddHttpClientInstrumentation()
+                    .AddAspNetCoreInstrumentation()
+                    // .AddMeter("Microsoft.SemanticKernel*")
+                    .AddOtlpExporter();
+            })
+            .WithLogging(providerBuilder =>
+            {
+                providerBuilder
+                    .AddOtlpExporter()
+                    .AddConsoleExporter();
             });
-
-        builder.Logging.AddOpenTelemetry(options =>
-        {
-            options.IncludeScopes = true;
-            options.ParseStateValues = true;
-            options.IncludeFormattedMessage = true;
-            options.AddConsoleExporter(); // Or other exporters
-        });
 
         return builder;
     }

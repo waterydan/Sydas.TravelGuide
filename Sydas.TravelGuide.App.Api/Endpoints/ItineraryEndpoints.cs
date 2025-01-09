@@ -20,9 +20,8 @@ public class ItineraryEndpoints : IEndpointDefinition
         {
             // var result = await mediator.Send(new GetOrderDetailsQuery { Id = id });
             // return result != null ? Results.Ok(result) : Results.NotFound();
-
+            
             await mediator.Send(new GenerateItinerary.Command());
-
             return Results.Ok("1");
         });
     }

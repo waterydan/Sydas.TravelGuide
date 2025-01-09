@@ -15,6 +15,7 @@
       <PackageReference Include="MediatR" Version="12.4.1" />
       <PackageReference Include="Microsoft.SemanticKernel" Version="1.32.0" />
       <PackageReference Include="Microsoft.SemanticKernel.Yaml" Version="1.32.0" />
+      <PackageReference Include="ObjectDumper.NET" Version="4.3.2" />
     </ItemGroup>
 
     <ItemGroup>

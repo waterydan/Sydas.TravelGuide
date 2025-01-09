@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Text.Json;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using Sydas.Framework.SemanticKernel;
 using Sydas.TravelGuide.App.Application.Kernels;
 using Sydas.TravelGuide.App.Application.Kernels.Prompts;
@@ -28,14 +29,18 @@ public static class GenerateItinerary
     public class CommandHandler : IRequestHandler<Command>
     {
         private readonly ItineraryKernel _kernel;
+        private readonly ILogger<CommandHandler> _logger;
 
-        public CommandHandler(ItineraryKernel kernel)
+        public CommandHandler(ItineraryKernel kernel, ILogger<CommandHandler> logger)
         {
             _kernel = kernel;
+            _logger = logger;
         }
         
         public async Task Handle(Command request, CancellationToken cancellationToken)
         {
+            _logger.LogDebug(request.Dump());
+            
             var requestJsonMetadata= ClassDescriptor.ConvertClassToText<Command>();
             var responseJsonMetadata= ClassDescriptor.ConvertClassToText<AttractionSuggestion>();
             var result = await _kernel.SemanticKernel.InvokeKernelFunctionFromFileAsync("Kernels/Prompts/AttractionSuggestion.prompt.yaml", new()
