@@ -13,7 +13,7 @@ namespace Sydas.TravelGuide.App.Application.Commands.Itinerary;
 
 public static class GenerateItinerary
 {
-    public class Command : IRequest<string>
+    public class Command : IRequest<AttractionSuggestions>
     {
         [Description("Travel start date")]
         public DateTime DepartDate { get; set; } = DateTime.Today;
@@ -28,7 +28,7 @@ public static class GenerateItinerary
         public List<TravelGoal> TravelGoals { get; set; } = new() { TravelGoal.Adventure, TravelGoal.Food, TravelGoal.Relaxation };
     }
 
-    public class CommandHandler : IRequestHandler<Command, string>
+    public class CommandHandler : IRequestHandler<Command, AttractionSuggestions>
     {
         private readonly ItineraryKernel _kernel;
         private readonly ILogger<CommandHandler> _logger;
@@ -39,7 +39,7 @@ public static class GenerateItinerary
             _logger = logger;
         }
         
-        public async Task<string> Handle(Command request, CancellationToken cancellationToken)
+        public async Task<AttractionSuggestions> Handle(Command request, CancellationToken cancellationToken)
         {
             _logger.LogDebug(request.Dump());
             
@@ -47,7 +47,7 @@ public static class GenerateItinerary
             JsonNode schema = options.GetJsonSchemaAsNode(typeof(AttractionSuggestions));
             Console.WriteLine(schema.ToString());
             var requestJsonMetadata= ClassDescriptor.ConvertClassToText<Command>();
-            var responseJsonMetadata= ClassDescriptor.ConvertClassToText<AttractionSuggestion>();
+            var responseJsonMetadata= ClassDescriptor.ConvertClassToText<AttractionSuggestions>();
             var result = await _kernel.SemanticKernel.InvokeKernelFunctionFromFileAsync("Kernels/Prompts/AttractionSuggestion.prompt.yaml", new()
             {
                 // { "request_metadata", requestJsonMetadata },
@@ -63,7 +63,9 @@ public static class GenerateItinerary
             //     { "json_document", JsonSerializer.Serialize(request, new JsonSerializerOptions(JsonSerializerDefaults.Web)) },
             // }, cancellationToken);
         
-            return result.GetValue<string>();
+            var json = result.GetValue<string>();
+            var test = JsonSerializer.Deserialize<AttractionSuggestions>(json);
+            return test;
         }
     }
 }
