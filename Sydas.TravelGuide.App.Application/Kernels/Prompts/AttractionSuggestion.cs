@@ -1,6 +1,13 @@
 using System.ComponentModel;
+using Sydas.TravelGuide.Core.Domain.Entities;
 
 namespace Sydas.TravelGuide.App.Application.Kernels.Prompts;
+
+
+public class AttractionSuggestions
+{
+    public List<Attraction> Attractions { get; set; } = new();
+}
 
 public class AttractionSuggestion
 {
@@ -14,5 +21,5 @@ public class AttractionSuggestion
     public string Reason { get; set; } = string.Empty;
     
     [Description("A recommended amount of time to spend at the attraction. This is to be represented in short form, such as 2h or 30m")]
-    public string SuggestedDuration { get; set; } = string.Empty;
+    public string VisitDuration { get; set; } = string.Empty;
 }

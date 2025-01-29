@@ -8,4 +8,11 @@ public class Attraction : ItineraryDetail
     {
     }
     
+    public string Destination { get; set; } = string.Empty;
+    
+    public string Description { get; set; } = string.Empty;
+    
+    public string Reason { get; set; } = string.Empty;
+    
+    public string VisitDuration { get; set; } = string.Empty;
 }

@@ -1,5 +1,7 @@
 using System.ComponentModel;
 using System.Text.Json;
+using System.Text.Json.Nodes;
+using System.Text.Json.Schema;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Sydas.Framework.SemanticKernel;
@@ -11,7 +13,7 @@ namespace Sydas.TravelGuide.App.Application.Commands.Itinerary;
 
 public static class GenerateItinerary
 {
-    public class Command : IRequest
+    public class Command : IRequest<string>
     {
         [Description("Travel start date")]
         public DateTime DepartDate { get; set; } = DateTime.Today;
@@ -26,7 +28,7 @@ public static class GenerateItinerary
         public List<TravelGoal> TravelGoals { get; set; } = new() { TravelGoal.Adventure, TravelGoal.Food, TravelGoal.Relaxation };
     }
 
-    public class CommandHandler : IRequestHandler<Command>
+    public class CommandHandler : IRequestHandler<Command, string>
     {
         private readonly ItineraryKernel _kernel;
         private readonly ILogger<CommandHandler> _logger;
@@ -37,10 +39,13 @@ public static class GenerateItinerary
             _logger = logger;
         }
         
-        public async Task Handle(Command request, CancellationToken cancellationToken)
+        public async Task<string> Handle(Command request, CancellationToken cancellationToken)
         {
             _logger.LogDebug(request.Dump());
             
+            JsonSerializerOptions options = JsonSerializerOptions.Default;
+            JsonNode schema = options.GetJsonSchemaAsNode(typeof(AttractionSuggestions));
+            Console.WriteLine(schema.ToString());
             var requestJsonMetadata= ClassDescriptor.ConvertClassToText<Command>();
             var responseJsonMetadata= ClassDescriptor.ConvertClassToText<AttractionSuggestion>();
             var result = await _kernel.SemanticKernel.InvokeKernelFunctionFromFileAsync("Kernels/Prompts/AttractionSuggestion.prompt.yaml", new()
@@ -57,6 +62,8 @@ public static class GenerateItinerary
             //     { "json_metadata", jsonMetadata },
             //     { "json_document", JsonSerializer.Serialize(request, new JsonSerializerOptions(JsonSerializerDefaults.Web)) },
             // }, cancellationToken);
+        
+            return result.GetValue<string>();
         }
     }
 }

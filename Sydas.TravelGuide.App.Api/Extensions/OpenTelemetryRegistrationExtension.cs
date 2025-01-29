@@ -1,3 +1,4 @@
+using OpenTelemetry;
 using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
@@ -8,30 +9,27 @@ public static class OpenTelemetryRegistrationExtension
 {
     public static WebApplicationBuilder ConfigureOpenTelemetry(this WebApplicationBuilder builder)
     {
-        builder.Services.AddOpenTelemetry()
+        var otb = builder.Services.AddOpenTelemetry().UseOtlpExporter()
             .WithTracing(providerBuilder =>
             {
                 providerBuilder
                     .AddAspNetCoreInstrumentation()
-                    .AddHttpClientInstrumentation()
-                    .AddOtlpExporter()
-                    .AddConsoleExporter();
+                    .AddHttpClientInstrumentation();
             })
             .WithMetrics(providerBuilder =>
             {
                 providerBuilder
                     .AddRuntimeInstrumentation()
                     .AddHttpClientInstrumentation()
-                    .AddAspNetCoreInstrumentation()
-                    // .AddMeter("Microsoft.SemanticKernel*")
-                    .AddOtlpExporter();
-            })
-            .WithLogging(providerBuilder =>
-            {
-                providerBuilder
-                    .AddOtlpExporter()
-                    .AddConsoleExporter();
+                    .AddAspNetCoreInstrumentation();
+                // .AddMeter("Microsoft.SemanticKernel*")
             });
+            
+
+        if (builder.Environment.IsDevelopment())
+        {
+            otb.WithLogging(providerBuilder => providerBuilder.AddConsoleExporter());
+        }
 
         return builder;
     }
